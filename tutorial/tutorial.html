@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial</title>
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/console.css">
+
+    <link rel="stylesheet" href="../node_modules/codemirror/lib/codemirror.css">
+
+    <!-- Include CodeMirror JS -->
+    <script src="../node_modules/codemirror/lib/codemirror.js"></script>
+
+    <!-- Include any additional modes or themes if needed -->
+    <!-- For example, including the JavaScript mode -->
+    <script src="../node_modules/codemirror/mode/javascript/javascript.js"></script>
+    <script src="../node_modules/codemirror/mode/xml/xml.js"></script>
+
+    <!-- Include the Dracula theme -->
+    <link rel="stylesheet" href="../node_modules/codemirror/theme/dracula.css">
+    <link rel="stylesheet" href="../node_modules/codemirror/theme/darcula.css">
+    <link rel="stylesheet" href="../node_modules/codemirror/theme/lesser-dark.css">
+    <link rel="stylesheet" href="../node_modules/codemirror/theme/monokai.css">
+
+    <!-- CodeMirror Features -->
+    <link rel="stylesheet" href="../node_modules\codemirror\addon\hint\show-hint.css">
+    <script src="../node_modules\codemirror\addon\hint\show-hint.js"></script>
+    <script src="../node_modules\codemirror\addon\hint\javascript-hint.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/addon/edit/closebrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/addon/edit/matchbrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/addon/fold/foldcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/addon/fold/foldgutter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/addon/fold/brace-fold.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/addon/fold/foldgutter.min.css">
+
+    <style>
+        .CodeMirror {
+            width: 100%;
+            height: 100%;
+            cursor: text;
+            margin-top: 0rem;
+            border-radius: .5rem;
+        }
+
+        .CodeMirror-gutter {
+            background-color: #151515;
+            /* Change the background color as desired */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <img src="../public/img/code crawlers logo.png" alt="cc-logo">
+        <ul>
+            <a href="../pages/modeSelect.html"><li>Home</li></a>
+            <a href="../help/documentation/documentation.html" target="_blank"><li>Documentation</li></a>
+        </ul>
+    </div>
+    <!-- Guide -->
+    <div class="guide"> 
+        <div class="guide-title">
+            <div>
+                <img src="../public/icons2/book.PNG" alt="book" class="book-icon">
+                Learn
+            </div>
+            <div>
+                <img src="../public/icons2/lightmode.png" alt="switch" class="toggle-switch" onclick="toggleTheme()">
+            </div>
+        </div>
+        <div class="guide-content">
+            <!-- Content here -->
+            <span>INTRODUCTION TO JAVASCRIPT</span>
+
+            <h2>
+                Review
+            </h2>
+
+            <p>
+                Let's take one more glance at the concepts we just learned:
+            </p>
+
+            <ul>
+                <li>
+                    Data is printed, or logged, to the console, a panel that displays messages, with <span class="highlight">console.log()</span>.
+                </li>
+                <li>
+                    We can write single-line <a href="https://www.codecademy.com/resources/docs/javascript/comments" target="_blank">comments</a>
+                     with <span class="highlight">//</span> and multi-line comments between 
+                     <span class="highlight">/*</span> and <span class="highlight">*/</span>.
+                </li>
+                <li>
+                    There are 7 fundamental <a href="https://www.codecademy.com/resources/docs/javascript/data-types" target="_blank">data types</a>
+                     in JavaScript: <a href="https://www.codecademy.com/resources/docs/javascript/strings" target="_blank">strings</a>, 
+                     numbers, booleans, null, undefined, symbol, and object.
+                </li>
+                <li>
+                    Numbers are any number without quotes: <span class="highlight">23.8879</span>
+                </li>
+                <li>
+                    Strings are characters wrapped in single or double quotes: <span class="highlight">'Sample String'</span>
+                </li>
+                <li>
+                    The built-in arithmetic <a href="https://www.codecademy.com/resources/docs/javascript/operators" target="_blank">operators</a>
+                     include <span class="highlight">+</span>, <span class="highlight">-</span>, <span class="highlight">*</span>, <span class="highlight">/</span>, and <span class="highlight">%</span>.
+                </li>
+                <li>
+                    <a href="https://www.codecademy.com/resources/docs/javascript/objects" target="_blank">Objects</a>,
+                    including instances of data types, can have properties, stored information. The properties are denoted with a 
+                    <span class="highlight">.</span> after the name of the object, for example: <span class="highlight">'Hello'.length</span>.
+                </li>
+                <li>
+                    Objects, including instances of data types, can have 
+                    <a href="https://www.codecademy.com/resources/docs/javascript/methods" target="_blank">methods</a> 
+                    which perform actions. Methods are called by appending the object or instance with a period, 
+                    the method name, and parentheses. For example: <span class="highlight">'hello'.toUpperCase()</span>.
+                </li>
+                <li>
+                    We can access properties and methods by using the <span class="highlight">.</span>, dot operator.
+                </li>
+                <li>
+                    Built-in objects, including <span class="highlight">Math</span>, are collections of methods and properties that JavaScript provides.
+                </li>
+            </ul>
+
+            <p>
+                Here are a few more resources to add to your toolkit:
+            </p>
+
+            <ul>
+                <li><a href="https://www.codecademy.com/resources/docs/javascript" target="_blank">Codecademy Docs: JavaScript</a></li>
+                <li><a href="https://www.codecademy.com/workspaces/new" target="_blank">Codecademy Workspaces: JavaScript</a></li>
+            </ul>
+
+            <p>
+                Make sure to bookmark these links so you have them at your disposal.
+            </p>
+        </div>
+    </div>
+    <!-- Code Editor -->
+    <div class="code-container swing-top-fwd">
+        <div class="error-display">
+            <!-- Error message -->
+        </div>
+        <div class="message-display">
+            <!-- Message display -->
+        </div>
+        <div class="code-editor-container">
+            <div class="code-editor-title">
+                <img src="../public/icons2/coding-light.png" alt="coding-icon" class="">
+                Code Editor
+            </div>
+            <textarea id="editor"></textarea>   <!-- The Code Editor Input field-->
+        </div>
+        <div class="btn-container">
+            <div id="run-code" class="run btn" onclick="updateScript()">RUN CODE</div>
+        </div>
+    </div>
+    <!-- Console -->
+    <div id="console-container">
+        <div class="third-column-label">
+            <div>
+                <img src="../public/icons2/console.png" alt="game-icon" class="game-icon">
+                <p class="game-title">Console</p>
+                <!-- Game or Console -->
+            </div>
+        </div>
+        <div id="console">
+            <!-- Console logs get displayed here... -->
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <div class="practice-button" onclick="practice(0)">
+            Practice in Game
+        </div>
+        <div class="pagination">
+            1 / 10
+        </div>
+        <div class="btn-container">
+            <div class="back" onclick="previousPage()">Back</div>
+            <div class="next" onclick="nextPage()">Next</div>
+        </div>
+    </div>
+
+
+    
+    <script src="./scripts/lessons.js"></script>
+    <script src="./scripts/console.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/codeEditor.js"></script>
+</body>
+</html>

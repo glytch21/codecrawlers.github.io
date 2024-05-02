@@ -1,0 +1,623 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: rgb(33, 33, 33);
+}
+
+.codecrawlers {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  height: 100vh;
+  padding: 5rem 5rem 6rem 5rem;
+  position: relative;
+}
+
+.are-you-sure-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  z-index: 10;
+  display: none;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: rgb(213, 255, 213);
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  font-family: 'FFF Forward', Arial, Helvetica, sans-serif;
+}
+
+.are-you-sure-modal div {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.7rem;
+}
+
+.are-you-sure-modal div div {
+  padding: 0.5rem;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  transition: 100ms;
+}
+
+.are-you-sure-modal div div:hover {
+  opacity: 0.9;
+}
+
+.settings-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-family: 'FFF Forward', Arial, Helvetica, sans-serif;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 4;
+  display: none;
+}
+
+.settings-modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 4;
+  display: none;
+}
+
+.settings-modal .settings-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 30vw;
+  height: 36vh;
+}
+
+.settings-modal .settings-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 30vmin;
+  opacity: 0.06;
+}
+
+.settings-modal .settings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  align-items: center;
+  width: 30vw;
+  height: 36vh;
+  padding: 2rem 3rem 2rem 3rem;
+  font-size: 1.2rem;
+  color: white;
+  z-index: 1;
+}
+
+.settings-modal .settings-container .settings-sub-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.music-settings,
+.sfx-settings,
+.font-size-settings,
+.vision-radius-settings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.range-input {
+  -webkit-appearance: none;
+  width: 160px;
+  height: 10px;
+  background: #112318;
+  background-size: 150px 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  outline: none;
+}
+
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #274d36;
+  position: relative;
+  z-index: 3;
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+.font-size-settings .font-size-right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+}
+
+.font-size-settings .arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: 100ms;
+}
+
+.font-size-settings .arrow:hover {
+  opacity: 0.8;
+}
+
+.font-size-settings .arrow:active {
+  opacity: 0.6;
+}
+
+.font-size-settings .arrow img {
+  width: 50%;
+  height: 50%;
+}
+
+.vision-radius-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  transition: 100ms;
+}
+
+.checkbox:hover {
+  opacity: 0.8;
+}
+
+.checkbox:active {
+  opacity: 0.6;
+}
+
+.checkbox .check {
+  width: 1rem;
+  height: 1rem;
+}
+
+#game-map-container {
+  width: 65% !important;
+  height: 100% !important;
+  background-color: rgb(0, 10, 0);
+  border-radius: 2rem;
+  position: relative;
+  padding: 4rem;
+  overflow: hidden;
+}
+
+.start-button {
+  position: absolute;
+  bottom: 1rem;
+  right: 2rem;
+  z-index: 2;
+
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: rgb(0, 53, 0);
+  color: white;
+  border-radius: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.start-button:hover {
+  background-color: rgb(0, 79, 0);
+}
+
+.resume-button {
+  position: absolute;
+  bottom: 1rem;
+  right: 2rem;
+  z-index: 99;
+
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: rgb(0, 53, 0);
+  color: white;
+  border-radius: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  display: none;
+}
+
+.resume-button:hover {
+  background-color: rgb(0, 79, 0);
+}
+
+.game-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+#game-map {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease-in-out;
+  position: relative;
+}
+
+canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+
+  /* width: 1008px;
+  height: 704px; */
+  width: 100%;
+  height: 100%;
+}
+
+.code-container {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.code-container .code-editor-container {
+  position: relative;
+  width: 100%;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  background-color: #111;
+  border-radius: 2rem;
+  height: 85%;
+}
+
+.buttons-container {
+  position: absolute;
+  bottom: 0.2rem;
+  right: 0.2rem;
+  padding: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.buttons-container div {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: 75ms;
+  position: relative;
+}
+
+.buttons-container .next-lesson {
+  width: initial;
+  height: 75px;
+  display: none;
+}
+
+.buttons-container div:hover {
+  opacity: 0.7;
+}
+
+.buttons-container div:active {
+  transform: translate(0.5px, 0.5px);
+}
+
+.buttons-container div img {
+  width: 100%;
+  height: 100%;
+}
+
+.error-display {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 99;
+  font-weight: 100;
+
+  color: rgb(255, 255, 255);
+  background-color: rgb(255, 123, 123);
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+  width: 75%;
+  display: none;
+}
+
+.message-display {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 99;
+  font-weight: 100;
+
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 156, 0);
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+  width: 75%;
+  display: none;
+}
+
+.code-container .code-editor-container .code-space-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+
+.code-container .btn-container {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  height: 15%;
+}
+
+.code-container .btn {
+  width: 49%;
+  height: 90%;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: #2b2b2b;
+
+  color: #d3d3d3;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 150ms;
+  border-radius: 1rem;
+  box-shadow: 0 12px 5px rgba(0, 0, 0, 0.1);
+}
+
+.code-container .btn:hover {
+  background-color: #383838;
+}
+
+.gif {
+  width: 98.8%;
+  height: 98.4%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.gif-coordinates {
+  width: 98.8%;
+  height: 98.4%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+background: #000; /* color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+background: #888; /* color of the scrollbar thumb */
+border-radius: 6px; /* roundness of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #555; /* color of the scrollbar thumb on hover */
+}
+
+.swing-top-fwd {
+-webkit-animation: swing-top-fwd 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: swing-top-fwd 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.simulation-complete {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  z-index: 3;
+  display: none;
+}
+
+.game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: none;
+}
+
+.active {
+  display: initial !important;
+}
+
+.game-resource-container {
+  position: absolute;
+  top: 8vmin;
+  right: 10vmin;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  /* background-color: red; */
+  color: white;
+  font-family: 'FFF Forward', Verdana, Geneva, Tahoma, sans-serif;
+  z-index: 3;
+}
+
+.energy-resource-container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  position: relative;
+}
+
+.energy-resource-container img {
+  height: 3.5vmin;
+}
+
+.base-health-container {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  position: relative;
+}
+
+.base-health-container img {
+  width: 4vmin;
+}
+
+/* ----------------------------------------------
+* Generated by Animista on 2024-2-11 2:58:15
+* Licensed under FreeBSD License.
+* See http://animista.net/license for more info. 
+* w: http://animista.net, t: @cssanimista
+* ---------------------------------------------- */
+
+/**
+* ----------------------------------------
+* animation swing-top-fwd
+* ----------------------------------------
+*/
+@-webkit-keyframes swing-top-fwd {
+  0% {
+    -webkit-transform: rotateX(180deg);
+            transform: rotateX(180deg);
+    -webkit-transform-origin: bottom;
+            transform-origin: bottom;
+  }
+  100% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    -webkit-transform-origin: bottom;
+            transform-origin: bottom;
+  }
+}
+
+@keyframes swing-top-fwd {
+  0% {
+    -webkit-transform: rotateX(180deg);
+            transform: rotateX(180deg);
+    -webkit-transform-origin: bottom;
+            transform-origin: bottom;
+  }
+  100% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    -webkit-transform-origin: bottom;
+            transform-origin: bottom;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .codecrawlers {
+      padding: 3rem 3rem 5rem 3rem;
+  }
+
+  .settings-modal .settings-container {
+      font-size: 1rem;
+  }
+
+  .settings-modal .settings-container .settings-sub-container {
+      font-size: 0.7rem;
+  }
+
+  .range-input,
+  .font-size-settings .font-size-right,
+  .vision-radius-right {
+      width: 100px;
+  }
+
+  .font-size-settings .arrow {
+      width: 1rem;
+      height: 1rem;
+  }
+
+  .checkbox {
+      border-radius: 0.3rem;
+      width: 10px;
+      height: 10px;
+      padding: 0.5rem;
+  }
+
+  .checkbox img {
+      width: 0.6rem;
+      height: 0.6rem;
+  }
+
+  .buttons-container div {
+      width: 50px;
+      height: 50px;
+  }
+}

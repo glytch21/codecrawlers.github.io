@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    font-family: sans-serif;
+    background-color: black;
+}
+
+/* Book */
+.book {
+    position: relative;
+    width: 60vmin;
+    height: 80vmin;
+    transition: transform 0.5s;
+}
+
+.storybook-page {
+    width: 100%;
+    height: 100%;
+}
+
+.paper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    perspective: 1500px;
+
+}
+
+.front,
+.back {
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    transition: transform 0.5s;
+}
+
+.front {
+    z-index: 1;
+    backface-visibility: hidden;
+    border-left: 3px solid powderblue;
+}
+
+.back {
+    z-index: 0;
+}
+
+.front-content,
+.back-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-content {
+    transform: rotateY(180deg)
+}
+
+/* Paper flip effect */
+.flipped .front,
+.flipped .back {
+    transform: rotateY(-180deg);
+}
+
+/* Controller Buttons */
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.5s;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover i {
+    color: #636363;
+}
+
+.left-arrow,
+.right-arrow {
+    width: 40px;
+}
+
+i {
+    font-size: 50px;
+    color: gray;
+}
+
+
+
+/* Paper stack order */
+#p1 {
+    z-index: 3;
+}
+
+#p2 {
+    z-index: 2;
+}
+
+#p3 {
+    z-index: 1;
+}
+
+.press-to-start {
+    position: absolute;
+    top: 4.5vmin;
+    right: 10vmin;
+    padding: 0.5rem;
+    font-family: 'Manga Temple', Arial, Helvetica, sans-serif;
+    border-radius: 0.5rem;
+    background-color: #000;
+    color: white;
+    cursor: pointer;
+}
+
+.press-to-start:hover {
+    opacity: 0.8;
+}

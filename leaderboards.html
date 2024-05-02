@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCrawlers</title>
+    <link rel="stylesheet" href="../styles/selectMode.css">
+    <style>
+      .monitor {
+        width: 600px; /* Adjust width as needed */
+        height: 400px; /* Adjust height as needed */
+        background-color: black;
+        border: 20px solid #444; /* Adjust border thickness and color */
+        border-radius: 20px; /* Adjust border radius to make it rounded */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add a shadow effect */
+        margin: 50px auto; /* Center the monitor container */
+        position: relative;
+      }
+    
+      .monitor:before {
+        content: '';
+        position: absolute;
+        top: -20px; /* Adjust distance from top */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px; /* Adjust width of the stand */
+        height: 20px; /* Adjust height of the stand */
+        background-color: #444; /* Adjust color of the stand */
+        border-radius: 10px; /* Adjust border radius to make it rounded */
+      }
+    </style>
+</head>
+
+<body>
+  <div class="monitor"></div>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeCrawlers</title>
+  <link rel="stylesheet" href="../styles/selectMode.css">
+  <link rel="stylesheet" href="../styles/saveData.css">
+
+  <style>
+    body {
+      overflow: hidden;
+    }
+
+    .sheesh-logo {
+      position: absolute;
+      bottom: -10rem;
+      right: 0rem;
+      width: 70vmin;
+      opacity: 0.08;
+    }
+
+    .container2 {
+      cursor: pointer;
+      transition: 100ms;
+    }
+
+    .container2:hover {
+      opacity: 0.8;
+    }
+
+    .container2:active {
+      transform: translateY(20%);
+    }
+
+    .container2 img {
+      width: 50vmin;
+    }
+  </style>
+</head>
+
+<body>
+  <img alt="sheesh-logo" class="sheesh-logo">
+  <a href="/pages/home.html">
+    <img src="../public/buttons/back_button2.png" alt="back" class="back-button">
+  </a>
+
+  <div class="container save-data-container">
+
+  </div>
+
+
+  <script>
+    // Get all elements with class "btn"
+    const buttons = document.querySelectorAll('.btn');
+
+    // Loop through each button
+    buttons.forEach(button => {
+      // Add event listener for hover
+      button.addEventListener('mouseover', function () {
+        // Add "hover-effect" class when hovered over
+        this.classList.add('hover-effect');
+      });
+
+      // Remove "hover-effect" class when mouse leaves the button
+      button.addEventListener('mouseout', function () {
+        this.classList.remove('hover-effect');
+      });
+    });
+
+    window.onload = function () {
+      // session cookie -START
+      let saveData = JSON.parse(localStorage.getItem('saveData')) || [];
+
+      const getSessionCookie = () => {
+        const cookie = document.cookie
+          .split("; ")
+          .find((row) => row.startsWith("sessionId="))
+          ?.split("=")[1];
+        return cookie || "";
+      };
+
+      const cookie = getSessionCookie()
+      const storedData = saveData.find(data => data.id === parseInt(cookie));
+      // session cookie -END
+
+      if (cookie) {
+        window.location.href = 'modeSelect.html';
+      }
+
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.js"></script>
+
+  <script src="../scripts/session.js"></script>
+</body>
+
+</html>

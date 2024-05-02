@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCrawlers Almanac</title>
+    <link rel="stylesheet" href="./almanac.css">
+    <script src="./almanac.js" defer></script>
+</head>
+<body>
+    <div class="about-us">
+        <div class="sidebar">
+            <!-- SIDEBAR THINGS -->
+            <div>
+                <img src="../../public/img/cc-text-logo-light.png" alt="codecrawlers-logo" class="cc-logo">
+            </div>
+
+            <div class="links">
+                <a href="../about-us/about-us.html">About CodeCrawlers</a>
+                <a href="../documentation/documentation.html">Documentation</a>
+                <a href="./almanac.html">Almanac</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="main-content">
+                <div id="documentation">
+                    <h2>CodeCrawlers Almanac</h2>
+                    <p>
+                        Welcome to the CodeCrawlers Almanac! Your go-to resource for all things crawler and virus-related. Dive in to discover essential information that will aid you in crafting impenetrable defenses and conquering the digital battlefield.
+                    </p>
+                </div>
+
+                <div class="h4s">
+                    <div id="crawlers">
+                        <h3>Crawlers</h3>
+                        <p>
+                            Crawlers are the primary defenders in CodeCrawlers, tasked with safeguarding the motherboard from digital viruses. Initially embodied by the Basic Crawler, these mechanical units evolve into the formidable Evolved Crawler as they progress. With their sleek design and swift movements, Crawlers patrol designated paths on the motherboard, efficiently neutralizing threats with built-in weaponry. As the backbone of the defense system, they play a crucial role in defending the CPU against malicious intruders.</p>
+                        <!-- Basic Crawler -->
+                        <h4>Basic Crawler</h4>
+                        <p>
+                            The "Basic Crawler" in CodeCrawlers is a foundational defender. It patrols designated paths on the motherboard, swiftly neutralizing digital viruses with its built-in weaponry. Adaptive and reliable, it's a key asset in defending against malicious intruders.
+                        </p>
+                        <div class="display-container">
+                            <img src="../../public/img/almanac-displays/crawler1display.png" alt="basic-crawler" class="almanac-img">
+                            <div class="almanac-description">
+                                <div>Function: spawnCrawlers(xpos, ypos)</div>
+                                <div>Health: 100</div>
+                                <div>Damage: 20</div>
+                                <span class="note">Can be upgraded into "Evolved Crawler" for increased health, range, and attack speed with the command "crawlers[i].upgrade()"</span>
+                            </div>
+                        </div>
+                        <!-- Evolved Crawler -->
+                        <h4>Evolved Crawler</h4>
+                        <p>
+                            The "Evolved Crawler" in CodeCrawlers is a upgraded version of the basic model, boasting increased health, range, and attack speed. With a sleek design reminiscent of its predecessor, it patrols the motherboard, swiftly neutralizing digital viruses with enhanced efficiency. Its advanced capabilities make it a vital asset in defending the CPU against malicious intruders.
+                        </p>
+                        <div class="display-container">
+                            <img src="../../public/img/almanac-displays/crawler2display.png" alt="evolved-crawler" class="almanac-img">
+                            <div class="almanac-description">
+                                <div>Function: crawlers[i].upgrade() <span>"Needs existing crawler to run this function"</span></div>
+                                <div>Health: 150</div>
+                                <div>Damage: 20</div>
+                                <span class="note">"I am the evolution of digital chaos, unstoppable and relentless. No virus can withstand my advanced algorithms."</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="viruses">
+                        <h3>Viruses</h3>
+                        <p>
+                            Viruses in CodeCrawlers are the antagonistic force, constantly seeking to infiltrate and corrupt the motherboard's delicate systems. These malicious entities come with unique abilities and strategies, relentlessly targeting the CPU's vulnerabilities. With their unpredictable behavior and cunning tactics, they pose a constant threat to the motherboard's security. Defending against these digital invaders is paramount, as failure to do so could result in catastrophic system failure.
+                        </p>
+                        <!-- WormByte -->
+                        <h4>WormByte</h4>
+                        <p>
+                            The "WormByte" in CodeCrawlers is a relentless threat focused solely on infiltrating the motherboard and reaching the CPU. It disregards any obstacles or defenders in its path, making it a direct and immediate danger. Players must swiftly intercept and eliminate these intruders to protect the system's integrity.
+                        </p>
+                        <div class="display-container">
+                            <img src="../../public/img/almanac-displays/virus1display.png" alt="basic-virus" class="almanac-img">
+                            <div class="almanac-description">
+                                <div>Health: 100</div>
+                                <div>Damage: 10 <span>"Damages all existing Crawlers by 10 health if it managed to react the motherboard"</span></div>
+                                <span class="note">"I march forward, undeterred by obstacles or defenses, for my sole purpose is to reach the heart of the system."</span>
+                            </div>
+                        </div>
+                        <!-- Seeker -->
+                        <h4>Seeker</h4>
+                        <p>
+                            The "Seeker Virus" in CodeCrawlers is a specialized threat that detects and targets nearby Crawlers, prioritizing them for direct melee attacks. Its aggressive behavior poses a significant challenge, requiring players to strategically counter its focused assault on their defenders.
+                        </p>
+                        <div class="display-container">
+                            <img src="../../public/img/almanac-displays/seeker-display.png" alt="seeker" class="almanac-img">
+                            <div class="almanac-description">
+                                <div>Health: 150</div>
+                                <div>Damage: 10</div>
+                                <span class="note">"I hunt the defenders, for they stand in the way of my purpose. None shall hinder my path to the heart of the system."</span>
+                            </div>
+                        </div>
+                        <!-- Malware -->
+                        <h4>Malware</h4>
+                        <p>
+                            The "Malware" in CodeCrawlers is a ranged digital threat, utilizing sophisticated algorithms to attack from a distance. Players must strategically counter these viruses to prevent widespread damage to the system.
+                        </p>
+                        <div class="display-container">
+                            <img src="../../public/img/almanac-displays/malware-display.png" alt="malware" class="almanac-img">
+                            <div class="almanac-description">
+                                <div>Health: 80</div>
+                                <div>Damage: 10</div>
+                                <span class="note">"I am the unseen threat, lurking in the digital shadows. From afar, I strike, corrupting the system with precision and efficiency."</span>
+                            </div>
+                        </div>
+                        <!-- Logic Bomb -->
+                        <h4>Logic Bomb</h4>
+                        <p>
+                            The "Logic Bomb" in CodeCrawlers is a specialized virus designed to explode upon contact with Crawlers, dealing devastating damage. While initially behaving like a WormByte, its explosive nature poses a unique threat to defenders. Players must be vigilant in intercepting and neutralizing Logic Bombs before they inflict significant harm to their Crawlers.
+                        </p>
+                        <div class="display-container">
+                            <img src="../../public/img/almanac-displays/logicBomb-display.png" alt="logic-bomb" class="almanac-img">
+                            <div class="almanac-description">
+                                <div>Health: 60</div>
+                                <div>Damage: 50</div>
+                                <span class="note">"My purpose is clear: to detonate and disrupt. Beware, defenders, for I am the harbinger of digital destruction."</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-bar">
+                <span>CONTENTS</span> 
+                <div>
+                    <a href="#documentation">CodeCrawlers Almanac</a>
+                    <div>
+                        <a href="#crawlers">Crawlers</a>
+                        <a href="#viruses">Viruses</a>
+                    </div>
+                </div>
+                <span><a href="#">Back to top</a></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

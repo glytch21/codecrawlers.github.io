@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCrawlers || Home</title>
+    <link rel="stylesheet" href="../styles/homepage.css">
+</head>
+<body>
+    <div class="homepage-bg">
+        <img src="../public/img/homepage/background.png" alt="background" class="homepage-background">
+        <a href="../help/about-us/about-us.html" target="_blank"><img src="../public/img/homepage/questionmark.png" alt="help-button" class="help-button"></a>
+        <div class="upper-half">
+            <img src="../public/img/homepage/background-of-logo.png" alt="logo-background" class="logo-background">
+            <div>
+                <img src="../public/img/homepage/logo.png" alt="logo" class="logo">
+                <img src="../public/img/homepage/codecrawlers.png" alt="codecrawlers" class="codecrawlers-text">
+            </div>
+        </div>
+        <div class="lower-half">
+            <div class="buttons">
+                <a href="saveData.html"><img src="../public/img/homepage/start.png" alt="start"></a>
+                <!-- <img src="../public/img/homepage/options.png" alt="options" onclick=""> -->
+            </div>
+        </div>
+    </div>
+    <div class="credits">
+        by <span style="color: red;">4</span> idiots
+    </div>
+    <audio src="../public/audio/music/Kubbi - Up In My Jam  NO COPYRIGHT 8-bit Music.mp3" id="myAudio" autoplay loop></audio>
+</body>
+
+<script>
+    var audio = document.getElementById("myAudio")
+    audio.volume = 0.5
+
+    window.addEventListener('click', function() { // user interaction first to play the audio
+        audio.play()
+    });
+</script>
+</html>

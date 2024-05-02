@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCrawlers</title>
+    <link rel="stylesheet" href="../styles/selectMode.css">
+    <link rel="stylesheet" href="../storymode/tutorialStyles/modal.css">
+</head>
+
+<body>
+    <img src="../public/img/homepage/logo.png" alt="logo" class="cc-logo">
+    <a onClick="Logout()">
+        <img src="../public/buttons/back_button2.png" alt="back" class="back-button">
+    </a>
+    <a href="/leaderboards.html" class="leaderboards-button"> hehe</a>
+    <div class="welcome-message">
+    </div>
+    <div class="container">
+        <a href="../tutorial/tutorial.html" class="container2 slide-top"> <!-- None yet -->
+            <img src="../public/buttons/tutorial_2.png" alt="tutorial" class="btn">
+            <span>Learn the basics</span>
+        </a>
+        <a href="../storymode/storymode-flip-book/storybook.html" class="container2 slide-top">
+            <img src="../public/buttons/storymode.png" alt="storymode" class="btn">
+            <span>Apply what you learned</span>
+        </a>
+        <a href="../index.html" class="container2 slide-top" id="endless-mode">
+            <img src="../public/buttons/endless.png" alt="endless" class="btn">
+            <span>The real game starts</span>
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // Get all elements with class "btn"
+        const buttons = document.querySelectorAll('.btn');
+
+        // Loop through each button
+        buttons.forEach(button => {
+            // Add event listener for hover
+            button.addEventListener('mouseover', function () {
+                // Add "hover-effect" class when hovered over
+                this.classList.add('hover-effect');
+            });
+
+            // Remove "hover-effect" class when mouse leaves the button
+            button.addEventListener('mouseout', function () {
+                this.classList.remove('hover-effect');
+            });
+        });
+
+        function Logout() {
+            document.cookie = "sessionId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            window.location.href = 'saveData.html';
+        }
+
+        // Show the dialog box when the page loads
+        window.onload = function () {
+            // session cookie -START
+            let saveData = JSON.parse(localStorage.getItem('saveData')) || [];
+
+            const getSessionCookie = () => {
+                const cookie = document.cookie
+                    .split("; ")
+                    .find((row) => row.startsWith("sessionId="))
+                    ?.split("=")[1];
+                return cookie || "";
+            };
+
+            const cookie = getSessionCookie()
+            const storedData = saveData.find(data => data.id === parseInt(cookie));
+            // session cookie -END
+
+            console.log(storedData)
+
+            if (!cookie) {
+                window.location.href = 'saveData.html'
+            }
+
+            const message = document.querySelector('.welcome-message');
+
+            if (storedData.login === 0) {
+                message.innerHTML = `Welcome, ${storedData.username}`
+                storedData.login += 1;
+                localStorage.setItem('saveData', JSON.stringify(saveData));
+            } else {
+                message.innerHTML = `Welcome Back, ${storedData.username}`
+            }
+
+
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCrawlers</title>
+
+    <link rel="stylesheet" href="./tutorialStyles/stylesTutorial.css">
+    <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/console.css">
+    <link rel="stylesheet" href="./tutorialStyles/modal.css">
+    <link rel="stylesheet" href="../styles/selectMode.css">
+    <link rel="stylesheet" href="../node_modules/codemirror/lib/codemirror.css">
+
+    <!-- Include CodeMirror JS -->
+    <script src="../node_modules/codemirror/lib/codemirror.js"></script>
+
+    <!-- Include any additional modes or themes if needed -->
+    <!-- For example, including the JavaScript mode -->
+    <script src="../node_modules/codemirror/mode/javascript/javascript.js"></script>
+    <script src="../node_modules/codemirror/mode/xml/xml.js"></script>
+
+    <!-- Include the Dracula theme -->
+    <link rel="stylesheet" href="../node_modules/codemirror/theme/dracula.css">
+    <link rel="stylesheet" href="../node_modules/codemirror/theme/darcula.css">
+    <link rel="stylesheet" href="../node_modules/codemirror/theme/lesser-dark.css">
+    <link rel="stylesheet" href="../node_modules/codemirror/theme/monokai.css">
+
+    <!-- CodeMirror Features -->
+    <link rel="stylesheet" href="../node_modules\codemirror\addon\hint\show-hint.css">
+    <script src="../node_modules\codemirror\addon\hint\show-hint.js"></script>
+    <script src="../node_modules\codemirror\addon\hint\javascript-hint.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/addon/edit/closebrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/addon/edit/matchbrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/addon/fold/foldcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/addon/fold/foldgutter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/addon/fold/brace-fold.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/addon/fold/foldgutter.min.css">
+
+    <style>
+        .CodeMirror {
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+            border: 1px solid rgb(0, 0, 0);
+            cursor: text;
+            border: 2px solid white;
+        }
+
+        .CodeMirror-gutter {
+            background-color: #151515;
+            /* Change the background color as desired */
+        }
+    </style>
+</head>
+
+<body>
+    <audio id='backgroundAudio' loop autoplay>
+        <source src="../public/audio/music/Kevin MacLeod - 8bit Dungeon Boss  NO COPYRIGHT 8-bit Music.mp3">
+    </audio>
+    <!-- <div class="sidebar">
+        <div class="sidebar-top">
+            <div>
+                btn1
+            </div>
+            <div>
+                btn2
+            </div>
+            <div>
+                btn3
+            </div>
+            <div>
+                btn4
+            </div>
+        </div>
+        <div class="sidebar-bot">
+            <div>
+                btn5
+            </div>
+        </div>
+    </div> -->
+    <div class="codecrawlers">
+        <div class="are-you-sure-modal">
+            Leave game?
+            <div>
+                <div onclick="homeButton()">
+                    YES
+                </div>
+                <div onclick="homeModal()">
+                    NO
+                </div>
+            </div>
+        </div>
+        <!-- SETTINGS MODAL -->
+        <div class="settings-modal-background" onclick="settingsButton()">
+            <!-- Settings Modal Background -->
+        </div>
+        <div class="settings-modal">
+            <img src="../public/img/homepage/background-of-logo.png" alt="background-of-settings" class="settings-background">
+            <img src="../public/img/homepage/logo.png" alt="logo" class="settings-logo">
+            <div class="settings-container">
+                SETTINGS
+                <div class="settings-sub-container">
+                    <div class="music-settings">
+                        <div>
+                            Music
+                        </div>
+                        <div>
+                            <Input type="range" id="music-range" class="range-input" min="0" max="1" step="0.01" value="0.1"></Input>
+                        </div>
+                    </div>
+                    <div class="sfx-settings">
+                        <div>
+                            SFX
+                        </div>
+                        <div>
+                            <Input type="range" id="sfx-range" class="range-input" min="0" max="1" step="0.01" value="0.2"></Input>
+                        </div>
+                    </div>
+                    <div class="font-size-settings">
+                        <div>
+                            FONT-SIZE
+                        </div>
+                        <div class="font-size-right">
+                            <div class="arrow" onclick="reduceFontSize()">
+                                <img src="../public/buttons/left-arrow.png" alt="left-arrow">
+                            </div>
+                            <div class="font-size-display">
+                                16px
+                            </div>
+                            <div class="arrow" onclick="increaseFontSize()">
+                                <img src="../public/buttons/right-arrow.png" alt="right-arrow">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vision-radius-settings">
+                        <div>
+                            VISION RADIUS
+                        </div>
+                        <div class="vision-radius-right">
+                            <div class="checkbox" onclick="toggleVisionRadius()">
+                                <img src="../public/buttons/check.png" alt="check" class="check">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="code-container swing-top-fwd">
+            <div class="error-display">
+                <!-- Error message -->
+            </div>
+            <div class="message-display">
+                <!-- Message display -->
+            </div>
+            <div class="code-editor-container">
+                <div class="codespace-shadow">
+                    <!-- Codespace Shadow -->
+                </div>
+                <!-- <img src="public/buttons/codespace2.png" alt="code-space-frame" class="code-space-frame"> -->
+                <textarea id="editor" placeholder="Code goes here...">
+// CodeCrawlers v1.0.0
+
+function animate() {
+  runAnimation(animate)
+
+  // Code goes here
+  
+}</textarea>
+            </div>
+            <div class="btn-container">
+
+                <img src="../public/buttons/clear_button.png" alt="clear" class="btn" onclick="clearEditor()">
+                <div class="clearbutton-shadow">
+                    <!-- Clear Button Shadow -->
+                </div>
+
+                <img src="../public/buttons/RUN_button.png" alt="run" class="btn run" onclick="updateScript()">
+                <div class="runbutton-shadow">
+                    <!-- Run Button Shadow -->
+                </div>
+
+            </div>
+            <!-- <div class="reduce-font-size" onclick="reduceFontSize()">
+                reduce font size
+            </div> -->
+        </div>
+        <div id="game-map-container">
+            <div class="gamemap-shadow">
+                <!-- GameMap Shadow -->
+            </div>
+            <div class="game-resource-container">
+
+                <div class="energy-resource-container">
+                    <div class="energyresource-shadow">
+                        <!-- Energy Resource Shadow -->
+                    </div>
+
+                    <img src="../public/icons/energy.png" alt="energy">
+
+                    <div class="energy-resource">
+                        <!-- this is where energy resource will be displayed -->
+                    </div>
+                </div>
+
+                <div class="base-health-container"> <!-- Resources container -->
+
+                    <div class="healthbar-shadow">
+                        <!-- Health Bar Shadow -->
+                    </div>
+
+                    <img src="../public/icons/heart.png" alt="heart">
+                    <div class="game-over-health">
+                        <!-- this is where hearts will be displayed -->
+                    </div>
+                </div>
+            </div>
+            <div class="start-button" onclick="startButton()">
+                <div class="startpause-shadow">
+                    <!-- Start/Pause Shadow -->
+                </div>
+                START
+            </div>
+            <div class="resume-button" onclick="resumeButton()">
+                RESUME
+            </div>
+            <!-- <img src="public/buttons/canvasBorder.png" alt="gameBorder" class="game-border"> -->
+            <div id="game-map">
+                <img src="../public/img/simulation-complete2.png" alt="simulation complete" class="simulation-complete">
+                <img src="../public/buttons/game_over_text1.png" alt="game over" class="game-over">
+                <div class="memorymodule-shadow">
+                    <!-- Memory Module Shadow -->
+                </div>
+
+                <div class="viruspathing-shadow">
+                    <!-- Memory Module Shadow -->
+                </div>
+
+                <canvas id="canvas">
+
+                    <!-- CANVAS GAME -->
+                </canvas>
+                <img src="/public/img/codeCrawlersMapCoordinatesTutorial.png" alt="codeCrawlersMapCoordinates"
+                    class="gif-coordinates">
+                <img src="../public/img/tutorial/tutorial1.png" alt="codeCrawlersMap" class="gif">
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="dialog-overlay" id="dialogOverlay">
+        <div class="dialog-box" id="dialogBox">
+            <p class="dialogContent" id="dialogContent">
+                <!-- DIALOG CONTENT -->
+            </p>
+        </div>
+        <div class="dialog-buttons">
+            <div>
+                <!-- leave this here -->
+            </div>
+            <div class="dialog-btns">
+                <button id="backButton" class="dialogButton" onclick="back()">Back</button>
+                <button id="nextButton" class="dialogButton" onclick="next()">Next</button>
+                <button id="closeButton" class="dialogButton" onclick="closeDialog()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="console-container">
+        <div id="console">
+            <!-- Console logs get displayed here... -->
+        </div>
+        <div class="toggle-console" onclick="toggleConsole()">
+            <div class="console-shadow">
+                <!-- Console Shadow -->
+            </div>
+            CONSOLE
+            <div class="log-updated">
+                <!-- Red circle notification -->
+            </div>
+        </div>
+    </div>
+
+    <div class="buttons-container">
+        <div class="next-lesson" onclick="nextLesson()">
+            <img src="../public/buttons/next lesson.png" alt="next-lesson">
+        </div>
+        <div class="home" onclick="homeModal()">
+            <div class="button-shadow-home" id="buttonShadow">
+                <!-- Button Shadow Green -->
+            </div>
+            <img src="../public/buttons/home.png" alt="home">
+        </div>
+
+        <div class="view" onclick="viewCoordinates()">
+            <div class="button-shadow-view" id="buttonShadow">
+                <!-- Button Shadow Green -->
+            </div>
+            <img src="../public/buttons/smol_eyecon2.png" alt="view-coordinates">
+        </div>
+        <div class="sound" onclick="soundOnOff()">
+            <div class="button-shadow-sound" id="buttonShadow">
+                <!-- Button Shadow Green -->
+            </div>
+            <img src="../public/buttons/onSound.png" alt="onSound" class="onSound">
+            <img src="../public/buttons/offSound.png" alt="offSound" style="display: none;" class="offSound">
+        </div>
+        <div class="settings" onclick="settingsButton()">
+            <div class="button-shadow-settings" id="buttonShadow">
+                <!-- Button Shadow Green -->
+            </div>
+            <img src="../public/buttons/settings.png" alt="settings">
+        </div>
+    </div>
+
+
+
+
+    <!-- <script> error displayer
+        // Add an event listener for errors
+        window.onerror = function(message, source, lineno, colno, error) {
+        // Display the error message to the player
+        alert('An error occurred: ' + message);
+        
+        // Optionally, you can log the error to the console for debugging purposes
+        console.error('Error:', error);
+        
+        // Prevent the default browser handling of the error
+        return true;
+        };
+    </script> -->
+    <script>
+        currentLevel = 1
+        let virusQuantity = 4
+
+        let bgmStatus
+        const bgm = document.getElementById('backgroundAudio')
+        let firstAudioRun = false
+
+        window.addEventListener('click', () => {
+            if (!firstAudioRun) {
+                bgmStatus = true
+                bgm.play()
+                firstAudioRun = true
+            }
+        })
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script src="tutorialScripts/modalTutorial.js"></script>
+    <script src="../scripts/console.js"></script>
+    <script src="./tutorialScripts/resourcesTutorial.js"></script>
+    <script src="../scripts/animationFrames.js"></script>
+    <script src="./tutorialScripts/scriptsTutorial.js"></script>
+    <script src="../scripts/canvasScripts.js"></script>
+    <script src="./tutorialScripts/backgroundScriptsTutorial.js"></script>
+    <script src="./tutorialScripts/levelsTutorial.js"></script>
+    <!-- <script src="../scripts/placementTilesData.js"></script> For the tiles that get highlighted. Removed because of inconsistency from other screen sizes. -->
+
+    <script src="./tutorialScripts/Sprite.js"></script>
+    <script src="../scripts/classes/Projectile.js"></script>
+    <script src="../scripts/classes/PlacementTile.js"></script>
+    <script src="./tutorialScripts/Virus.js"></script>
+    <script src="./tutorialScripts/Crawler.js"></script>
+
+    <script src="./tutorialScripts/codesTutorial.js"></script> <!-- For premade codes-->
+    <script src="../scripts/html.js"></script> <!-- For zoomable canvas-->
+    
+    <script>                                                                                // IF ALL ERROR CATCHERS FAIL. WE HAVE THIS GUY HERE TO SAVE THE DAY.
+        window.onerror = function (message, source, lineno, colno, error) {
+            // Handle the error
+            console.error('An error occurred:', message, 'at', source, 'line', lineno);
+            // You can call a function here to handle the error further
+            displayError(error);
+        };
+    </script>
+</body>
+
+</html>

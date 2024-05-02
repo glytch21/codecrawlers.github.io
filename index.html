@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCrawlers</title>
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/console.css">
+    <link rel="stylesheet" href="node_modules/codemirror/lib/codemirror.css">
+
+    <!-- Include CodeMirror JS -->
+    <script src="node_modules/codemirror/lib/codemirror.js"></script>
+
+    <!-- Include any additional modes or themes if needed -->
+    <!-- For example, including the JavaScript mode -->
+    <script src="node_modules/codemirror/mode/javascript/javascript.js"></script>
+    <script src="node_modules/codemirror/mode/xml/xml.js"></script>
+
+    <!-- Include the Dracula theme -->
+    <link rel="stylesheet" href="node_modules/codemirror/theme/dracula.css">
+    <link rel="stylesheet" href="node_modules/codemirror/theme/darcula.css">
+    <link rel="stylesheet" href="node_modules/codemirror/theme/lesser-dark.css">
+    <link rel="stylesheet" href="node_modules/codemirror/theme/monokai.css">
+
+    <!-- CodeMirror Features -->
+    <link rel="stylesheet" href="node_modules\codemirror\addon\hint\show-hint.css">
+    <script src="node_modules\codemirror\addon\hint\show-hint.js"></script>
+    <script src="node_modules\codemirror\addon\hint\javascript-hint.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/addon/edit/closebrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/addon/edit/matchbrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/addon/fold/foldcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/addon/fold/foldgutter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/addon/fold/brace-fold.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/addon/fold/foldgutter.min.css">
+
+    <style>
+        .CodeMirror {
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+            border: 1px solid rgb(0, 0, 0);
+            cursor: text;
+        }
+
+        .CodeMirror-gutter {
+            background-color: #151515;
+            /* Change the background color as desired */
+        }
+    </style>
+</head>
+
+<body>
+    <audio id='backgroundAudio' loop autoplay>
+        <source src="public/audio/music/Kevin MacLeod - 8bit Dungeon Boss  NO COPYRIGHT 8-bit Music.mp3">
+    </audio>
+    <!-- <div class="sidebar">
+        <div class="sidebar-top">
+            <div>
+                btn1
+            </div>
+            <div>
+                btn2
+            </div>
+            <div>
+                btn3
+            </div>
+            <div>
+                btn4
+            </div>
+        </div>
+        <div class="sidebar-bot">
+            <div>
+                btn5
+            </div>
+        </div>
+    </div> -->
+    <div class="codecrawlers">
+        <!-- LEAVE THE GAME WARNING MODAL -->
+        <div class="are-you-sure-modal">
+            Leave game?
+            <div>
+                <div onclick="homeButton()">
+                    YES
+                </div>
+                <div onclick="homeModal()">
+                    NO
+                </div>
+            </div>
+        </div>
+        <!-- SETTINGS MODAL -->
+        <div class="settings-modal-background" onclick="settingsButton()">
+            <!-- Settings Modal Background -->
+        </div>
+        <div class="settings-modal">
+            <img src="public/img/homepage/background-of-logo.png" alt="background-of-settings"
+                class="settings-background">
+            <img src="public/img/homepage/logo.png" alt="logo" class="settings-logo">
+            <div class="settings-container">
+                SETTINGS
+                <div class="settings-sub-container">
+                    <div class="music-settings">
+                        <div>
+                            Music
+                        </div>
+                        <div>
+                            <Input type="range" id="music-range" class="range-input" min="0" max="1" step="0.01"
+                                value="0.1"></Input>
+                        </div>
+                    </div>
+                    <div class="sfx-settings">
+                        <div>
+                            SFX
+                        </div>
+                        <div>
+                            <Input type="range" id="sfx-range" class="range-input" min="0" max="1" step="0.01"
+                                value="0.2"></Input>
+                        </div>
+                    </div>
+                    <div class="font-size-settings">
+                        <div>
+                            FONT-SIZE
+                        </div>
+                        <div class="font-size-right">
+                            <div class="arrow" onclick="reduceFontSize()">
+                                <img src="public/buttons/left-arrow.png" alt="left-arrow">
+                            </div>
+                            <div class="font-size-display">
+                                16px
+                            </div>
+                            <div class="arrow" onclick="increaseFontSize()">
+                                <img src="public/buttons/right-arrow.png" alt="right-arrow">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vision-radius-settings">
+                        <div>
+                            VISION RADIUS
+                        </div>
+                        <div class="vision-radius-right">
+                            <div class="checkbox" onclick="toggleVisionRadius()">
+                                <img src="public/buttons/check.png" alt="check" class="check">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="code-container swing-top-fwd">
+            <div class="error-display">
+                <!-- Error message -->
+            </div>
+            <div class="message-display">
+                <!-- Message display -->
+            </div>
+            <div class="code-editor-container">
+                <!-- <img src="public/buttons/codespace2.png" alt="code-space-frame" class="code-space-frame"> -->
+                <textarea id="editor" placeholder="Code goes here...">
+// CodeCrawlers v1.0.0
+
+function animate() {
+  runAnimation(animate)
+
+  // Code goes here
+  
+}
+
+// Before Testing: Add crawler distance between each other condition...</textarea>
+            </div>
+            <div class="btn-container">
+                <img src="public/buttons/clear_button.png" alt="clear" class="btn" onclick="clearEditor()">
+                <img src="public/buttons/RUN_button.png" alt="run" class="btn run" onclick="updateScript()">
+            </div>
+        </div>
+        <div id="game-map-container">
+            <div class="game-resource-container">
+                <div class="energy-resource-container">
+                    <img src="public/icons/energy.png" alt="energy">
+                    <div class="energy-resource">
+                        <!-- this is where energy resource will be displayed -->200
+                    </div>
+                </div>
+                <div class="base-health-container"> <!-- Resources container -->
+                    <img src="public/icons/heart.png" alt="heart">
+                    <div class="game-over-health">
+                        <!-- this is where hearts will be displayed -->100
+                    </div>
+                </div>
+            </div>
+            <div class="skills-container">
+                <img src="public/icons/fj.png" alt="fj-skill" class="fj-skill">
+                <p class="fj-cd">READY</p>
+            </div>
+            <div class="nth-wave">
+                Wave 1
+            </div>
+            <div class="start-button" onclick="startButton()">
+                START
+            </div>
+            <div class="resume-button" onclick="resumeButton()">
+                RESUME
+            </div>
+            <!-- <img src="public/buttons/canvasBorder.png" alt="gameBorder" class="game-border"> -->
+            <div id="game-map">
+                <img src="public/img/pause.png" alt="pause" class="pause">
+                <img src="public/buttons/game_over_text1.png" alt="game over" class="game-over">
+                <canvas id="canvas">
+                    <!-- CANVAS GAME -->
+                </canvas>
+                <img src="/public/img/codeCrawlersMapCoordinates.png" alt="codeCrawlersMapCoordinates"
+                    class="gif-coordinates">
+                <img src="/public/img/codeCrawlersMap.gif" alt="codeCrawlersMap" class="gif"> <!-- GAME MAP -->
+            </div>
+        </div>
+    </div>
+    <div id="console-container">
+        <div id="console">
+            <!-- Console logs get displayed here... -->
+        </div>
+        <div class="toggle-console" onclick="toggleConsole()">
+            CONSOLE
+            <div class="log-updated">
+                <!-- Red circle notification -->
+            </div>
+        </div>
+    </div>
+    <div class="buttons-container">
+        <div class="home" onclick="homeModal()">
+            <img src="public/buttons/home.png" alt="home">
+        </div>
+        <div class="pause-button" onclick="pauseFunction()">
+            <img src="public/buttons/pause.png" alt="pause">
+        </div>
+        <div class="view" onclick="viewCoordinates()">
+            <img src="public/buttons/smol_eyecon2.png" alt="view-coordinates">
+        </div>
+        <div class="sound" onclick="soundOnOff()">
+            <img src="public/buttons/onSound.png" alt="onSound" class="onSound">
+            <img src="public/buttons/offSound.png" alt="offSound" style="display: none;" class="offSound">
+        </div>
+        <div class="settings" onclick="settingsButton()">
+            <img src="public/buttons/settings.png" alt="settings">
+        </div>
+    </div>
+
+
+
+
+    <script>
+        let bgmStatus
+        const bgm = document.getElementById('backgroundAudio')
+        let firstAudioRun = false
+
+        window.addEventListener('click', () => {
+            if (!firstAudioRun) {
+                bgmStatus = true
+                bgm.play()
+                firstAudioRun = true
+            }
+        })
+        let score = 0
+        let terminatedVirus = 0
+
+        window.onload = function () {
+            // session cookie -START
+            let saveData = JSON.parse(localStorage.getItem('saveData')) || [];
+
+            const getSessionCookie = () => {
+                const cookie = document.cookie
+                    .split("; ")
+                    .find((row) => row.startsWith("sessionId="))
+                    ?.split("=")[1];
+                return cookie || "";
+            };
+
+            const cookie = getSessionCookie()
+            const storedData = saveData.find(data => data.id === parseInt(cookie));
+            // session cookie -END
+            console.log('highscore', storedData.highscore)
+            console.log('kill', storedData.overallkills)
+            console.log('highscorekill', storedData.highscorekills)
+
+        }  
+
+    </script>
+
+    <script src="scripts/console.js"></script>
+    <script src="scripts/resources.js"></script>
+    <script src="scripts/animationFrames.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/canvasScripts.js"></script>
+    <script src="scripts/backgroundScripts.js"></script>
+    <script src="scripts/levels.js"></script>
+    <script src="scripts/endless.js"></script>
+    <!-- <script src="scripts/placementTilesData.js"></script> For the tiles that get highlighted. Removed because of inconsistency from other screen sizes. -->
+
+    <script src="scripts/classes/Sprite.js"></script>
+    <script src="scripts/classes/Projectile.js"></script>
+    <script src="scripts/classes/PlacementTile.js"></script>
+    <script src="scripts/classes/Virus.js"></script>
+    <script src="scripts/classes/Crawler.js"></script>
+    <script src="scripts/classes/Skills.js"></script>
+
+    <script src="scripts/codes.js"></script> <!-- For premade codes-->
+    <script src="scripts/html.js"></script> <!-- For zoomable canvas-->
+    <script>                                                                                // IF ALL ERROR CATCHERS FAIL. WE HAVE THIS GUY HERE TO SAVE THE DAY.
+        window.onerror = function (message, source, lineno, colno, error) {
+            // Handle the error
+            console.error('An error occurred:', message, 'at', source, 'line', lineno);
+            // You can call a function here to handle the error further
+            displayError(error);
+        };
+    </script>
+</body>
+
+</html>

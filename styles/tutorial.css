@@ -1,0 +1,364 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  background-color: rgb(0, 2, 21);
+  font-family: 'FFF Forward';
+  width: 100%;
+  overflow: hidden;
+}
+
+button {
+  background-color: transparent;
+  /* Remove background color */
+  border: none;
+  /* Remove border */
+  padding: 0;
+  /* Remove padding */
+  margin: 0;
+  /* Remove margin */
+  cursor: pointer;
+  /* Add pointer cursor on hover */
+}
+
+div {
+  position: relative;
+}
+
+.warning-sign {
+  z-index: 200;
+  height: 40px;
+  width: 40px;
+  margin-left: 42px;
+}
+
+.level-highlight1 {
+  position: absolute;
+  /* Set the level-highlight to absolute position */
+  top: 621px;
+  /* Adjust the position as needed */
+  left: 451px;
+  /* Adjust the position as needed */
+  width: 124px;
+  height: 40px;
+  background-color: rgb(0, 128, 0, 0.4);
+  background-image: linear-gradient(to bottom right, rgb(0, 128, 0, 0.4), rgb(0, 255, 0, 0.4));
+  z-index: 200;
+  /* Set a higher z-index to ensure it's displayed on top */
+}
+
+.level-highlight2 {
+  position: absolute;
+  /* Set the level-highlight to absolute position */
+  top: 577px;
+  /* Adjust the position as needed */
+  left: 451px;
+  /* Adjust the position as needed */
+  width: 124px;
+  height: 40px;
+  background-color: rgb(0, 0, 51, 0.7);
+  /* Dark Navy Blue */
+  background-image: linear-gradient(to bottom right, rgb(0, 0, 51, 0.4), rgb(0, 102, 102, 0.7));
+  z-index: 200;
+  /* Set a higher z-index to ensure it's displayed on top */
+}
+
+.level-highlight3 {
+  position: absolute;
+  /* Set the level-highlight to absolute position */
+  top: 531px;
+  /* Adjust the position as needed */
+  left: 451px;
+  /* Adjust the position as needed */
+  width: 124px;
+  height: 40px;
+  background-color: rgb(0, 0, 51, 0.7);
+  /* Dark Navy Blue */
+  background-image: linear-gradient(to bottom right, rgb(0, 0, 51, 0.4), rgb(0, 102, 102, 0.7));
+  z-index: 200;
+  /* Set a higher z-index to ensure it's displayed on top */
+}
+
+.level-highlight4 {
+  position: absolute;
+  /* Set the level-highlight to absolute position */
+  top: 487px;
+  /* Adjust the position as needed */
+  left: 451px;
+  /* Adjust the position as needed */
+  width: 124px;
+  height: 40px;
+  background-color: rgb(0, 0, 51, 0.7);
+  /* Dark Navy Blue */
+  background-image: linear-gradient(to bottom right, rgb(0, 0, 51, 0.4), rgb(0, 102, 102, 0.7));
+  z-index: 200;
+  /* Set a higher z-index to ensure it's displayed on top */
+}
+
+.level-highlight5 {
+  position: absolute;
+  /* Set the level-highlight to absolute position */
+  top: 442px;
+  /* Adjust the position as needed */
+  left: 451px;
+  /* Adjust the position as needed */
+  width: 124px;
+  height: 40px;
+  background-color: rgb(0, 0, 51, 0.7);
+  /* Dark Navy Blue */
+  background-image: linear-gradient(to bottom right, rgb(0, 0, 51, 0.4), rgb(0, 102, 102, 0.7));
+  z-index: 200;
+  /* Set a higher z-index to ensure it's displayed on top */
+}
+
+.level-highlight6 {
+  position: absolute;
+  /* Set the level-highlight to absolute position */
+  top: 398px;
+  /* Adjust the position as needed */
+  left: 451px;
+  /* Adjust the position as needed */
+  width: 124px;
+  height: 40px;
+  background-color: rgb(0, 0, 51, 0.7);
+  /* Dark Navy Blue */
+  background-image: linear-gradient(to bottom right, rgb(0, 0, 51, 0.4), rgb(0, 102, 102, 0.7));
+  z-index: 200;
+  /* Set a higher z-index to ensure it's displayed on top */
+}
+
+.level-highlight7 {
+  position: absolute;
+  /* Set the level-highlight to absolute position */
+  top: 353px;
+  /* Adjust the position as needed */
+  left: 451px;
+  /* Adjust the position as needed */
+  width: 124px;
+  height: 40px;
+  background-color: rgb(0, 0, 51, 0.7);
+  /* Dark Navy Blue */
+  background-image: linear-gradient(to bottom right, rgb(0, 0, 51, 0.4), rgb(0, 102, 102, 0.7));
+  z-index: 200;
+  /* Set a higher z-index to ensure it's displayed on top */
+}
+
+.level-highlight8 {
+  position: absolute;
+  /* Set the level-highlight to absolute position */
+  top: 309px;
+  /* Adjust the position as needed */
+  left: 451px;
+  /* Adjust the position as needed */
+  width: 124px;
+  height: 40px;
+  background-color: rgb(0, 0, 51, 0.7);
+  /* Dark Navy Blue */
+  background-image: linear-gradient(to bottom right, rgb(0, 0, 51, 0.4), rgb(0, 102, 102, 0.7));
+  z-index: 200;
+  /* Set a higher z-index to ensure it's displayed on top */
+}
+
+.level-highlight9 {
+  position: absolute;
+  /* Set the level-highlight to absolute position */
+  top: 265px;
+  /* Adjust the position as needed */
+  left: 451px;
+  /* Adjust the position as needed */
+  width: 124px;
+  height: 40px;
+  background-color: rgb(0, 0, 51, 0.7);
+  /* Dark Navy Blue */
+  background-image: linear-gradient(to bottom right, rgb(0, 0, 51, 0.4), rgb(0, 102, 102, 0.7));
+  z-index: 200;
+  /* Set a higher z-index to ensure it's displayed on top */
+}
+
+.level-highlight10 {
+  position: absolute;
+  /* Set the level-highlight to absolute position */
+  top: 220px;
+  /* Adjust the position as needed */
+  left: 451px;
+  /* Adjust the position as needed */
+  width: 124px;
+  height: 40px;
+  background-color: rgb(0, 0, 51, 0.7);
+  /* Dark Navy Blue */
+  background-image: linear-gradient(to bottom right, rgb(0, 0, 51, 0.4), rgb(0, 102, 102, 0.7));
+  z-index: 200;
+  /* Set a higher z-index to ensure it's displayed on top */
+}
+
+.back-button {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  height: 5vmin;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.back-button:hover {
+  opacity: 0.9;
+}
+
+.back-button:active {
+  opacity: 0.8;
+}
+
+.level-title {
+  position: absolute;
+  top: 3%;
+  left: 73%;
+  color: white;
+}
+
+.levelstory-container {
+  text-indent: 20px;
+  font-size: 10px;
+  color: white;
+  top: 10%;
+  left: 73%;
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background-color: #000;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  padding: 20px;
+  line-height: 3;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.levelstory-container::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #ccc;
+  border-left: 2px solid #ccc;
+  border-radius: 0 0 0 20px;
+}
+
+.levelstory-container::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #ccc;
+  border-right: 2px solid #ccc;
+  border-radius: 0 0 20px 0;
+}
+
+.level-details {
+  position: absolute;
+  top: 64.3%;
+  left: 82.5%;
+  color: white;
+  z-index: 200;
+  background-color: black;
+  /* border: 2px solid #ccc;
+  padding: 5px;
+  border-radius: 10px; */
+}
+
+.heart-display {
+  width: 30px !important;
+  height: 30px !important;
+}
+
+
+.levelinfo-container {
+  font-size: 10px;
+  color: white;
+  top: 66%;
+  left: 73%;
+  position: absolute;
+  width: 400px;
+  height: 200px;
+  background-color: #000;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  padding: 20px;
+  line-height: 3;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+.container {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.container img {
+  width: 72%;
+  height: 100vh;
+}
+
+.container2 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #fff;
+  font-size: 1 rem;
+  gap: 1rem;
+}
+
+.btn {
+  height: 40vmin;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.btn:hover {
+  opacity: 0.9
+}
+
+.btn:active {
+  opacity: 0.8;
+}
+
+.hover-effect {
+  box-shadow: 0 0 30px 30px rgba(0, 100, 0, 0.4);
+  border-radius: 3rem;
+  height: 41vmin;
+}
+
+
+.slide-top {
+  animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+/* ----------------------------------------------
+* Generated by Animista on 2024-2-15 2:47:12
+* Licensed under FreeBSD License.
+* See http://animista.net/license for more info. 
+* w: http://animista.net, t: @cssanimista
+* ---------------------------------------------- */
+
+/**
+* ----------------------------------------
+* animation slide-top
+* ----------------------------------------
+*/
+
+@keyframes slide-top {
+  0% {
+    transform: translateY(100px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

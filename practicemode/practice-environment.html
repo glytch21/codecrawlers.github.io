@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Game</title>
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/console.css">
+
+    <link rel="stylesheet" href="../node_modules/codemirror/lib/codemirror.css">
+
+    <!-- Include CodeMirror JS -->
+    <script src="../node_modules/codemirror/lib/codemirror.js"></script>
+
+    <!-- Include any additional modes or themes if needed -->
+    <!-- For example, including the JavaScript mode -->
+    <script src="../node_modules/codemirror/mode/javascript/javascript.js"></script>
+    <script src="../node_modules/codemirror/mode/xml/xml.js"></script>
+
+    <!-- Include the Dracula theme -->
+    <link rel="stylesheet" href="../node_modules/codemirror/theme/dracula.css">
+    <link rel="stylesheet" href="../node_modules/codemirror/theme/darcula.css">
+    <link rel="stylesheet" href="../node_modules/codemirror/theme/lesser-dark.css">
+    <link rel="stylesheet" href="../node_modules/codemirror/theme/monokai.css">
+
+    <!-- CodeMirror Features -->
+    <link rel="stylesheet" href="../node_modules\codemirror\addon\hint\show-hint.css">
+    <script src="../node_modules\codemirror\addon\hint\show-hint.js"></script>
+    <script src="../node_modules\codemirror\addon\hint\javascript-hint.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/addon/edit/closebrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/addon/edit/matchbrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/addon/fold/foldcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/addon/fold/foldgutter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/addon/fold/brace-fold.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/addon/fold/foldgutter.min.css">
+
+    <style>
+        .CodeMirror {
+            width: 100%;
+            height: 100%;
+            cursor: text;
+            margin-top: 0rem;
+            border-radius: .5rem;
+        }
+
+        .CodeMirror-gutter {
+            background-color: #151515;
+            /* Change the background color as desired */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <img src="../public/img/code crawlers logo.png" alt="cc-logo">
+        <ul>
+            <a href="../pages/modeSelect.html"><li>Home</li></a>
+            <a href="../help/documentation/documentation.html" target="_blank"><li>Documentation</li></a>
+        </ul>
+    </div>
+    <!-- Guide -->
+    <div class="guide"> 
+        <div class="guide-title">
+            <div>
+                <img src="../public/icons2/book.PNG" alt="book" class="book-icon">
+                Learn
+            </div>
+            <div>
+                <img src="../public/icons2/lightmode.png" alt="switch" class="toggle-switch" onclick="toggleTheme()">
+            </div>
+        </div>
+        <div class="guide-content">
+            <!-- Content here -->
+            <span>CODECRAWLERS: THE BASICS</span>
+
+            <h2>Crawlers</h2>
+
+            <p>
+                Congratulations on completing the <span class="highlight">Console</span> and <span class="highlight">Comments</span>
+                tutorial!
+            </p>
+
+            <p>
+                You've taken your first steps into the world of JavaScript, mastering the basics of using the console
+                to interact with your code. Now, armed with this knowledge, you're ready to dive even deeper into the 
+                fascinating realm of coding with <span class="highlight">CodeCrawlers</span>!
+            </p>
+
+            <p>
+                In <span class="highlight">CodeCrawlers</span>, you'll encounter a powerful tool called an array. 
+                
+            </p>
+        </div>
+    </div>
+    <!-- Code Editor -->
+    <div class="code-container swing-top-fwd">
+        <div class="error-display">
+            <!-- Error message -->
+        </div>
+        <div class="message-display">
+            <!-- Message display -->
+        </div>
+        <div class="code-editor-container">
+            <div class="code-editor-title">
+                <img src="../public/icons2/coding-light.png" alt="coding-icon" class="">
+                Code Editor
+            </div>
+            <textarea id="editor" placeholder="Code goes here...">
+// CodeCrawlers v1.0.0
+
+function animate() {
+  runAnimation(animate)
+
+  // Code goes here
+  
+}</textarea>
+        </div>
+        <div class="btn-container">
+            <div id="run-code" class="run btn" onclick="updateScript()">RUN CODE</div>
+        </div>
+    </div>
+    <!-- Console -->
+    <div id="console-container">
+        <div class="third-column-label">
+            <div>
+                <img src="../public/icons2/console.png" alt="game-icon" class="game-icon">
+                <p class="game-title">Console</p>
+                <!-- Game or Console -->
+            </div>
+            <div class="game-console-toggle" onclick="toggleMapOrConsole()">
+                Show Game
+                <!-- Show Console or Show Game -->
+            </div>
+        </div>
+        <div id="console">
+            <!-- Console logs get displayed here... -->
+        </div>
+    </div>
+    <div class="start-button" onclick="startButton()">
+        START
+    </div>
+    <div class="resume-button" onclick="resumeButton()">
+        RESUME
+    </div>
+    <!-- Game Map -->
+    <div id="game-map">
+        <div class="third-column-label">
+            <div>
+                <img src="../public/icons2/game-development.png" alt="game-icon" class="game-icon">
+                <p class="game-title">Game</p>
+                <!-- Game or Console -->
+            </div>
+            <div class="game-console-toggle" onclick="toggleMapOrConsole()">
+                Show Console
+                <!-- Show Console or Show Game -->
+            </div>
+        </div>
+        <img src="../public/img/pause.png" alt="pause" class="pause">
+        <img src="../public/buttons/game_over_text1.png" alt="game over" class="game-over">
+        <div class="map-container">
+            <canvas id="canvas">
+                CANVAS GAME
+            </canvas>
+            <!-- <img src="../public/img/codeCrawlersMapCoordinates.png" alt="codeCrawlersMapCoordinates" class="gif-coordinates"> -->
+            <img src="../public/img/codeCrawlersMap.gif" alt="codeCrawlersMap" class="gif">
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <div class="tutorial-button" onclick="redirectTutorial()">
+            Back to Tutorial
+        </div>
+        <div class="pagination">
+            1 / 10
+        </div>
+        <div class="btn-container">
+            <div class="back" onclick="previousPage()">Back</div>
+            <div class="next" onclick="nextPage()">Next</div>
+        </div>
+    </div>
+
+
+    <script src="./scripts/lessons.js"></script>
+
+    <script src="./scripts/console.js"></script>
+    <script src="./scripts/resources.js"></script>
+    <script src="./scripts/animationFrames.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/script2.js"></script>
+    
+    <script src="./scripts/codeEditor.js"></script>
+    
+    <script src="./scripts/canvasScripts.js"></script>
+    <script src="./scripts/backgroundScripts.js"></script>
+    <script src="./scripts/levels.js"></script>
+    <script src="./scripts/endless.js"></script>
+    
+    <script src="./scripts/classes/Sprite.js"></script>
+    <script src="./scripts/classes/Projectile.js"></script>
+    <script src="./scripts/classes/PlacementTile.js"></script>
+    <script src="./scripts/classes/Virus.js"></script>
+    <script src="./scripts/classes/Crawler.js"></script>
+    <script src="./scripts/classes/Skills.js"></script>
+    
+    <script src="./scripts/codes.js"></script>
+</body>
+</html>

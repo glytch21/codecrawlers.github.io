@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="node_modules/codemirror/lib/codemirror.css">
+
+    <!-- Include CodeMirror JS -->
+    <script src="node_modules/codemirror/lib/codemirror.js"></script>
+
+    <!-- Include any additional modes or themes if needed -->
+    <!-- For example, including the JavaScript mode -->
+    <script src="node_modules/codemirror/mode/javascript/javascript.js"></script>
+    <script src="node_modules/codemirror/mode/xml/xml.js"></script>
+    
+
+    <!-- Include the Dracula theme -->
+    <link rel="stylesheet" href="node_modules/codemirror/theme/dracula.css">
+    <link rel="stylesheet" href="node_modules/codemirror/theme/lesser-dark.css">
+
+    <link rel="stylesheet" href="node_modules\codemirror\addon\hint\show-hint.css">
+    <script src="node_modules\codemirror\addon\hint\show-hint.js"></script>
+    <script src="node_modules\codemirror\addon\hint\javascript-hint.js"></script>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .CodeMirror {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 800px;
+            height: 500px;
+            border: 5px solid black !important;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <textarea id="editor" placeholder="Code goes here...">
+const num1 = 6
+const num2 = 9
+const num3 = num1 + num2
+
+console.log(num3)
+</textarea>
+    </div>
+
+
+    <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
+            mode:  "javascript",
+            theme: "dracula",
+            smartIndent: true,
+            tabSize: 4,
+            lineNumbers: true,
+            extraKeys: {"Ctrl-Space": "autocomplete"},
+            autoCapitalize: true
+        });
+    </script>
+</body>
+</html>

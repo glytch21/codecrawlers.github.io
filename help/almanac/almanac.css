@@ -1,0 +1,209 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-padding-top: 4rem;
+    scroll-behavior: smooth;
+    text-decoration: none;
+}
+
+:root {
+    --clr-bg: #f5f7f9;
+    --clr-light: #ffffff;
+    --clr-dark: #1e1e1e;
+    --clr-text: #444444;
+    --clr-highlight: #3cd55c;
+    --clr-gray: gray;
+}
+
+.dark-mode {
+    --clr-bg: #141414;
+    --clr-light: #1e1e1e;
+    --clr-text: #bababa;
+    --clr-highlight: #3cd55c;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--clr-text);
+    background-color: var(--clr-bg);
+}
+
+a {
+    color: var(--clr-text)
+}
+
+a:hover {
+    color: var(--clr-highlight)
+}
+
+.about-us {
+    display: flex;
+    
+    width: 66%;
+}
+
+.sidebar {
+    width: 20%;
+    padding: 2rem;
+}
+
+.sidebar .cc-logo {
+    width: 100%;
+    cursor: pointer;
+}
+
+.sidebar .links {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sidebar .links a {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.content {
+    display: flex;
+    background-color: var(--clr-light);
+    width: 80%;
+    padding: 2rem;
+    position: relative;
+}
+
+.content .main-content {
+    width: 80%;
+    padding-top: 4rem;
+    padding-right: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.content .content-bar {
+    width: 10%;
+    padding: 1rem;
+    position: fixed;
+    top: 10vmin;
+    right: 40vmin;
+}
+
+.content .content-bar span {
+    color: var(--clr-gray);
+    font-size: 0.9rem;
+}
+
+.content .content-bar span a {
+    color: var(--clr-gray);
+    font-size: 0.9rem;
+}
+
+.content .content-bar div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem
+}
+
+.content .content-bar div a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content .content-bar div div {
+    padding-left: 1rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+h1 {
+    font-family: 'FFF Forward', Arial, Helvetica, sans-serif;
+    padding-bottom: 2rem;
+}
+
+h2 {
+    font-family: 'FFF Forward', Arial, Helvetica, sans-serif;
+    padding-bottom: 2rem;
+}
+
+h3 {
+    font-family: 'FFF Forward', Arial, Helvetica, sans-serif;
+    padding-bottom: 1.7rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-family: 'FFF Forward', Arial, Helvetica, sans-serif;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.welcome {
+    font-style: italic;
+}
+
+.h4s {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.h4s .sample-img {
+    width: 100%;
+}
+
+.h4s div p {
+    padding-bottom: 1rem;
+}
+
+ul {
+    padding-bottom: 1rem;
+}
+
+ul li {
+    margin-left: 2rem;
+}
+
+/* Almanac CSS */
+.display-container {
+    display: flex;
+    align-items: start;
+    justify-content: left;
+    gap: 1rem;
+    height: 30vmin;
+}
+
+.almanac-img {
+    height: 100%;
+}
+
+.almanac-description {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+}
+
+.almanac-description .note {
+    position: absolute;
+    bottom: 0;
+    font-style: italic;
+    color: gray;
+}
+
+.almanac-description span {
+    color: gray;
+    font-style: italic;
+}

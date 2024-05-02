@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeCrawlers</title>
+  <link rel="stylesheet" href="../styles/tutorial.css">
+  <script src="./tutorialScripts/levelSelect.js"></script>
+</head>
+
+<body>
+  <a href="/pages/modeSelect.html">
+    <img src="../public/buttons/back_button2.png" alt="back" class="back-button">
+  </a>
+  <div class="container">
+    <img src="/public/img/storymode/levelselector-bg.png" style="border-right: 4px solid #000000fe;">
+
+    <div class="level-title" id="level-title">Floor 1: Reinitialization</div>
+
+    <div class="levelstory-container">  <p>Awakening from a decade-long slumber, I find myself thrust into a world ravaged by a global digital outbreak. Companies, once mighty, now lie in ruins, succumbing to the relentless onslaught of insidious viruses.</p>
+      <p>Summoned by the CEO, I am tasked with a monumental mission: to vanquish these malevolent entities and restore order to the chaos. It's time to breathe life back into 'CodeCrawlers', our beacon of hope in this darkened digital landscape.</p>
+      <h3 style="line-height: 60px;">System Initialized... CodeCrawlers: <span style="color: green">ONLINE</span></h3>
+    </div>
+
+    <div class="level-details" id="level-details">Floor Intel</div>
+    <div class="levelinfo-container"> 100 <img class="heart-display" src="/public/icons/heart.png"> 50 <img class="heart-display" src="/public/icons/energy.png"> 10 <img class="heart-display" src="/public/icons/alien.png"></div>
+    
+
+    
+    <button class="startGame" onclick="startGame()" style=" font-family: 'M12_MACH BIKER', Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+    position: absolute;
+    bottom: 1rem;
+    right: 2rem;
+    z-index: 1;
+
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: rgb(0, 53, 0);
+    color: white;
+    border-radius: 0.5rem;
+    text-align: center;
+    cursor: pointer;">START</button>
+    
+
+    <button onclick="changeLevel('./tutorial1.html')" id="level1" class="level-highlight1"></button>
+    <button onclick="changeLevel('./level2.html')" id="level2" class="level-highlight2"> <img id="warning2"
+        style="z-index: 200; height: 45px; width: 40px; margin-left:1px;"
+        src="/public/img/storymode/level_warningsign.png"></a>
+      <button href="./level3.html" id="level3" class="level-highlight3"> <img id="warning3"
+          style="z-index: 200; height: 45px; width: 40px; margin-left:1px;"
+          src="/public/img/storymode/level_warningsign.png"></button>
+      <button href="./level4.html" id="level4" class="level-highlight4"> <img id="warning4"
+          style="z-index: 200; height: 45px; width: 40px; margin-left:1px;"
+          src="/public/img/storymode/level_warningsign.png"></button>
+      <button href="./level5.html" id="level5" class="level-highlight5"> <img id="warning5"
+          style="z-index: 200; height: 45px; width: 40px; margin-left:1px;"
+          src="/public/img/storymode/level_warningsign.png"></button>
+      <button href="./level6.html" id="level6" class="level-highlight6"> <img id="warning6"
+          style="z-index: 200; height: 45px; width: 40px; margin-left:1px;"
+          src="/public/img/storymode/level_warningsign.png"></button>
+      <button href="./level7.html" id="level7" class="level-highlight7"> <img id="warning7"
+          style="z-index: 200; height: 45px; width: 40px; margin-left:1px;"
+          src="/public/img/storymode/level_warningsign.png"></button>
+      <button href="./level8.html" id="level8" class="level-highlight8"> <img id="warning8"
+          style="z-index: 200; height: 45px; width: 40px; margin-left:1px;"
+          src="/public/img/storymode/level_warningsign.png"></button>
+      <button href="./level9.html" id="level9" class="level-highlight9"> <img id="warning9"
+          style="z-index: 200; height: 45px; width: 40px; margin-left:1px;"
+          src="/public/img/storymode/level_warningsign.png"></button>
+      <button href="./level10.html" id="level10" class="level-highlight10"><img id="warning10"
+          style="z-index: 200; height: 45px; width: 40px; margin-left:1px;"
+          src="/public/img/storymode/level_warningsign.png"></button>
+
+  </div>
+
+
+  <script>
+    window.onload = function () {
+      // session cookie -START
+      let saveData = JSON.parse(localStorage.getItem('saveData')) || [];
+
+      const getSessionCookie = () => {
+        const cookie = document.cookie
+          .split("; ")
+          .find((row) => row.startsWith("sessionId="))
+          ?.split("=")[1];
+        return cookie || "";
+      };
+
+      const cookie = getSessionCookie()
+      const storedData = saveData.find(data => data.id === parseInt(cookie));
+      // session cookie -END
+
+
+
+      if (storedData.storylevel === 0) {
+        document.getElementById('level2').style.pointerEvents = 'none';
+        document.getElementById('level3').style.pointerEvents = 'none';
+        document.getElementById('level4').style.pointerEvents = 'none';
+        document.getElementById('level5').style.pointerEvents = 'none';
+        document.getElementById('level6').style.pointerEvents = 'none';
+        document.getElementById('level7').style.pointerEvents = 'none';
+        document.getElementById('level8').style.pointerEvents = 'none';
+        document.getElementById('level9').style.pointerEvents = 'none';
+        document.getElementById('level10').style.pointerEvents = 'none';
+      } else if (storedData.storylevel === 1) {
+        document.getElementById('warning2').style.display = 'none';
+
+        document.getElementById('level2').style.backgroundColor = 'rgb(0, 128, 0, 0.4)';
+        document.getElementById('level2').style.backgroundImage = 'linear-gradient(to bottom right, rgb(0, 128, 0, 0.4), rgb(0, 255, 0, 0.4))';
+        document.getElementById('level3').style.pointerEvents = 'none';
+        document.getElementById('level4').style.pointerEvents = 'none';
+        document.getElementById('level5').style.pointerEvents = 'none';
+        document.getElementById('level6').style.pointerEvents = 'none';
+        document.getElementById('level7').style.pointerEvents = 'none';
+        document.getElementById('level8').style.pointerEvents = 'none';
+        document.getElementById('level9').style.pointerEvents = 'none';
+        document.getElementById('level10').style.pointerEvents = 'none';
+      } else if (storedData.storylevel === 2) {
+        document.getElementById('warning3').style.display = 'none';
+
+        document.getElementById('level3').style.backgroundColor = 'rgb(0, 128, 0, 0.4)';
+        document.getElementById('level3').style.backgroundImage = 'linear-gradient(to bottom right, rgb(0, 128, 0, 0.4), rgb(0, 255, 0, 0.4))';
+        document.getElementById('level4').style.pointerEvents = 'none';
+        document.getElementById('level5').style.pointerEvents = 'none';
+        document.getElementById('level6').style.pointerEvents = 'none';
+        document.getElementById('level7').style.pointerEvents = 'none';
+        document.getElementById('level8').style.pointerEvents = 'none';
+        document.getElementById('level9').style.pointerEvents = 'none';
+        document.getElementById('level10').style.pointerEvents = 'none';
+      }
+    }
+  </script>
+</body>
+
+</html>
